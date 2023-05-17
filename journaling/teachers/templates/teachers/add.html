@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'teacher_index' %}">Müəllimlər</a>
+    <h1>{{page_title}}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        {% if notification %}
+            <b>{{ notification }}</b>
+        {% endif %}
+        
+        <table style="margin: auto;">
+            <tr>
+                <th>Ad:</th>
+                <td><input name="name" type="text" value=""/></td>
+            </tr>
+            <tr>
+                <th>Soyad:</th>
+                <td><input name="surname" type="text" value=""/></td>
+            </tr>
+            <tr>
+                <th>Ata adı:</th>
+                <td><input name="patronymic" type="text" value=""/></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><button style="float:right" type="submit">Əlavə et</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
